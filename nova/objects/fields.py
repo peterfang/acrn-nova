@@ -404,10 +404,11 @@ class HVType(BaseNovaEnum):
     XEN = 'xen'
     ZVM = 'zvm'
     PRSM = 'prsm'
+    ACRN = 'acrn'
 
     ALL = (BAREMETAL, BHYVE, DOCKER, FAKE, HYPERV, IRONIC, KQEMU, KVM, LXC,
            LXD, OPENVZ, PARALLELS, PHYP, QEMU, TEST, UML, VBOX, VIRTUOZZO,
-           VMWARE, XEN, ZVM, PRSM)
+           VMWARE, XEN, ZVM, PRSM, ACRN)
 
     def coerce(self, obj, attr, value):
         try:
