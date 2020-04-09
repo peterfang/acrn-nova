@@ -85,6 +85,7 @@ def is_vif_model_valid_for_virt(virt_type, vif_model):
         'parallels': [network_model.VIF_MODEL_VIRTIO,
                       network_model.VIF_MODEL_RTL8139,
                       network_model.VIF_MODEL_E1000],
+        'acrn': [network_model.VIF_MODEL_VIRTIO],
         }
 
     if vif_model is None:
@@ -151,7 +152,7 @@ class LibvirtGenericVIFDriver(object):
 
         # If the virt type is KVM/QEMU/VZ(Parallels), then use virtio according
         # to the global config parameter
-        if (model is None and virt_type in ('kvm', 'qemu', 'parallels') and
+        if (model is None and virt_type in ('kvm', 'qemu', 'parallels', 'acrn') and
                 CONF.libvirt.use_virtio_for_bridges):
             model = network_model.VIF_MODEL_VIRTIO
 
