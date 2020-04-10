@@ -5327,7 +5327,7 @@ class LibvirtDriver(driver.ComputeDriver):
     def _configure_guest_by_virt_type(self, guest, virt_type, caps, instance,
                                       image_meta, flavor, root_device_name,
                                       sev_enabled):
-        if virt_type == "xen":
+        if virt_type in ("xen", "acrn"):
             if guest.os_type == fields.VMMode.HVM:
                 guest.os_loader = CONF.libvirt.xen_hvmloader_path
             else:
